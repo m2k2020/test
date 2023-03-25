@@ -1,0 +1,80 @@
+
+<div class="page-header">
+    <h1 class="my-5">Classes</h1>
+    
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#classesModal">
+            <i class="fa-plus"></i>
+          </button>
+          
+
+    </div>
+</div>
+    
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">class</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for class in listClass %}
+            <tr>
+                <td>{{class.id}}</td>
+                <td>{{class.name}}</td>
+                <td>
+                    <button class="btn btn-info"><span>edit</span></button>
+                    <button class="btn btn-danger"><span>delete</span></button>
+                </td>
+            {% endfor %}
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">class</th>
+                <th scope="col">Action</th>
+            </tr>
+        </tfoot>
+</table>
+</div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="classesModal" tabindex="-1" aria-labelledby="classesModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="classesModal">Class Register</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <form action="{% url 'index' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                      <label for="name" class="form-label">class</label>
+                      <input type="name" name="name" class="form-control" id="name" placeholder="class name here" required>
+                    </div>
+                    {% if message %}
+                    <div>
+                        {{ message }}
+                    </div>
+                    {% endif %}
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                  </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Update Modal -->
