@@ -27,8 +27,10 @@
                 <td>{{class.id}}</td>
                 <td>{{class.name}}</td>
                 <td>
-                    <button class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#updateModal{{ class.id }}"><span>edit</span></button>
-                    <button class="btn btn-danger"><span>delete</span></button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateModal{{ class.id }}">
+                        Update
+                    </button>
+                    <!-- <button class="btn btn-danger"><span>delete</span></button> -->
                 </td>
             {% endfor %}
             </tr>
@@ -67,7 +69,7 @@
                     </div>
                     {% endif %}
                     <input type="submit" class="btn btn-primary" value="Submit">
-                  </form>
+                </form>
             </div>
         </div>
         </div>
@@ -76,30 +78,34 @@
 
 
     <!-- Update Modal -->
-    <div class="modal fade" id="updateModal{{ class.id }}" tabindex="-1" role="dialog" aria-labelledby="updateModal{{ class.id }}" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal fade" id="updateModal{{ class.id }}" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel{{ class.id }}" aria-hidden="true">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="updateModalLabel{{ class.id }}">Update</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+          <h5 class="modal-title fs-5" id="updateModalLabel{{ class.id }}">Update</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
           </button>
         </div>
         <div class="modal-body">
-          <form method="POST" action="">
+
+          <form method="POST" action="{% url 'update' class.id %}">
             {% csrf_token %}
-            <div class="form-group">
-                <<label for="name" class="form-label">class</label>
-                <input type="name" name="name" class="form-control" id="name" placeholder="class name here" required value="{{ class.name }}">
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Save changes</button>
+             <div class="mb-3">
+               <label for="name" class="form-label">class</label>
+               <input type="name" name="name" class="form-control" id="name" placeholder="class name here" required>
+             </div>
+             {% if message %}
+             <div>
+                 {{ message }}
+             </div>
+             {% endif %}
+             <input type="submit" class="btn btn-primary" value="Submit">
           </form>
+          
         </div>
       </div>
     </div>
     </div>
-
 
 
 
