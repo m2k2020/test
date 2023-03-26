@@ -11,7 +11,7 @@ def index(request):
         listClass = classes.all_classes()
     else:
         savingClass = classes.save_class(request)
-        
+
         if savingClass:
             return HttpResponseRedirect(reverse('index'))
         else:
@@ -19,4 +19,7 @@ def index(request):
         
     context = {'listClass': listClass}
     return render(request, 'index.html',context)
+
+
+
 
