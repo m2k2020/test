@@ -27,9 +27,8 @@
                 <td>{{class.id}}</td>
                 <td>{{class.name}}</td>
                 <td>
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateModal{{ class.id }}">
-                        Update
-                    </button>
+                    <button type="button" class="btn btn-primary update-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-id="{{ class.id }}">Edit</button>
+                   <a href="{% url 'delete' class.id %}" class="btn btn-danger">Delete</a>
                     <!-- <button class="btn btn-danger"><span>delete</span></button> -->
                 </td>
             {% endfor %}
@@ -78,21 +77,21 @@
 
 
     <!-- Update Modal -->
-    <div class="modal fade" id="updateModal{{ class.id }}" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel{{ class.id }}" aria-hidden="true">
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fs-5" id="updateModalLabel{{ class.id }}">Update</h5>
-          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+          <h5 class="modal-title fs-5" id="updateModalLabel">Update</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
           </button>
         </div>
         <div class="modal-body">
 
-          <form method="POST" action="{% url 'update' class.id %}">
+          <form method="POST" >
             {% csrf_token %}
              <div class="mb-3">
                <label for="name" class="form-label">class</label>
-               <input type="name" name="name" class="form-control" id="name" placeholder="class name here" required>
+               <input type="name" name="name" class="form-control" id="name" value="s"placeholder="class name here" required>
              </div>
              {% if message %}
              <div>
@@ -106,6 +105,9 @@
       </div>
     </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="application/javascript" src="script.js"></script>
 
 
 

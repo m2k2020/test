@@ -11,8 +11,8 @@ def index(request):
         listClass = classes.all_classes()
     else:
         savingClass = classes.save_class(request)
-
-        if savingClass:
+        
+        if savingClass:            
             return HttpResponseRedirect(reverse('index'))
         else:
             return "error"
@@ -20,19 +20,13 @@ def index(request):
     context = {'listClass': listClass}
     return render(request, 'index.html',context)
 
+def update(request, id):
+    classes = get_object_or_404(Class, id=id)
+    data = {
+        'name':classes.name
+    }
+    return JsonResponse(data)
 
-def update_view(request, pk):
-    if request.method == "GET":
-        object = get_object_or_404(Class, pk=pk)
-        listClass = classes.all_classes()
-        
-    # object = get_object_or_404(MyModel, pk=pk)
-    # if request.method == 'POST':
-    #     form = MyModelForm(request.POST, instance=object)
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect('myapp:detail', pk=pk)
-    # else:
-    #     form = MyModelForm(instance=object)
-    # return render(request, 'myapp/update_modal.html', {'form': form, 'object': object})
 
+def delete(request):
+    pass

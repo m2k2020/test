@@ -16,7 +16,10 @@ def save_class(request):
     if request.method == 'POST':
         name = request.POST['name']
         classes = Class.objects.create(name=name)
-        return classes.save
+
+        data = {'class_id': classes.id}
+
+        return JsonResponse(data)
 
 
 
