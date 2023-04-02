@@ -18,12 +18,12 @@ def create(request):
   
 def read(request):
     data = Class.objects.all()
-    context = {'Classs': data}
+    context = {'data': data}
     return render(request, 'result.html', context)
   
 def edit(request, id):
     data = Class.objects.get(id=id)
-    context = {'Class': data}
+    context = {'data': data}
     return render(request, 'edit.html', context)
   
   
