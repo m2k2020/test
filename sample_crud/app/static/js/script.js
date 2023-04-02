@@ -27,6 +27,7 @@ $(document).ready(function(){
     $(document).on('click', '.edit', function(){
         $id = $(this).attr('name');
         window.location = "edit/" + $id;
+        
     });
   
     $('#update').on('click', function(){
