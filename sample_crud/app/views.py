@@ -23,9 +23,10 @@ def index(request):
 def update(request, id):
     classes = get_object_or_404(Class, id=id)
     data = {
-        'id': id,
+        'id': classes.id,
         'name':classes.name
     }
+    print(data)
     return JsonResponse(data)
 
 
