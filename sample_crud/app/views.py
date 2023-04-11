@@ -51,6 +51,13 @@ def fetch_data(request):
 
 
 
+def student(request):
+    return render(request, 'Student/index.html')
+
+
+
+
+
 
 
 
