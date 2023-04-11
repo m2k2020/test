@@ -6,17 +6,21 @@
     {% csrf_token %}
     <div class="mb-3">
         
-        <label>Name</label>
-        <input type="text" id="name" class="form-control" style="width:30%;" required="required"/>
+        <label>Name</label> <br>
+        <span id="nameError" font-color="red"></span>
+        <input type="text" id="stname" class="form-control" style="width:30%;" required="required"/>
+
+        <label>Age</label>
+        <input type="text" id="stage" class="form-control" style="width:30%;" required="required"/>
 
         <label>List Of Class </label>
         <select id="myDropdown" class="form-control" style="width:30%;"></select>
 
     </div>    
     <div class="mb-3">    
-        <button type="button" id="create" class="btn btn-primary">Create</button>
+        <button type="button" id="createStudent" class="btn btn-primary">Create</button>
     </div>
 </form>
 <br />
-<div id="result"></div>
+<div id="stResult"></div>
 {% endblock %}
