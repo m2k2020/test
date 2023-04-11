@@ -9,7 +9,7 @@ from .functions import classes
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'Classes/index.html')
   
 def create(request):
     data = Class(name=request.POST['name'])
@@ -19,12 +19,12 @@ def create(request):
 def read(request):
     data = Class.objects.all()
     context = {'data': data}
-    return render(request, 'result.html', context)
+    return render(request, 'Classes/result.html', context)
   
 def edit(request, id):
     data = Class.objects.get(id=id)
     context = {'data': data}
-    return render(request, 'edit.html', context)
+    return render(request, 'Classes/edit.html', context)
   
   
 def update(request, id):
