@@ -3,17 +3,18 @@
         <tr>
             <th>id</th>
             <th>name</th>
+            <th>age</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        {% for class in data %}
+        {% for student in data %}
         <tr>
-            <td>{{ class.id }}</td>
-            <td>{{ class.name }}</td>
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
             <td><center>
-                <a class="btn btn-warning edit" name="{{ class.id }}">Edit</a> 
-                <a class="btn btn-danger delete" name="{{ class.id }}">Delete</a></center>
+                <a class="btn btn-warning edit" name="{{ student.id }}">Edit</a> 
+                <a class="btn btn-danger delete" name="{{ student.id }}">Delete</a></center>
             </td>
         </tr>
         {% endfor %}
