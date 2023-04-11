@@ -17,4 +17,5 @@ urlpatterns = [
     path('edit/<id>',views.edit, name='edit'),
     path('edit/update/<id>',views.update, name='update'),
     path('delete/<id>',views.delete, name='delete'),
+    path('fetch_data/',views.fetch_data, name='fetch_data'),
 ]
