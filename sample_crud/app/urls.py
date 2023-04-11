@@ -22,4 +22,5 @@ urlpatterns = [
 
 
     path('student', views.student, name='student'),
+    path('createStudent/',views.createStudent, name='createStudent'),
 ]
