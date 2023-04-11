@@ -40,6 +40,14 @@ def delete(request, id):
     return redirect('/')
 
 
+def fetch_data(request):
+    data = Class.objects.values("id","name")
+    result=[]
+    for row in data:
+        result.append(row)
+    return JsonResponse(result, safe=False)
+
+
 
 
 
