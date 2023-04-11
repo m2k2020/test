@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+    <form id="updateForm">
+        {% csrf_token %}
+        <input type="hidden" id="id" value="{{ data.id }}"/>
+        <div class="mb-3">
+            <label>Student Name</label>
+            <input type="text" id="name" value="{{ data.name }}" class="form-control" required/>
+            <label>Student Age</label>
+            <input type="text" id="age" value="{{ data.age }}" class="form-control" required/>
+            <label>Student Class</label>
+            <select id="umyDropdown" class="form-control" style="width:30%;" required >
+                <option value="{{ data.grade.id }}">{{ data.grade.name }}</option>
+                {% for c in c %}
+                <option value="{{ c.id }}">{{ c.name }}</option>
+                {% endfor %}
+            </select>
+            
+        </div>
+        <div class="mb-3">
+            <button type="sumbit" id="updateStudent" class="btn btn-warning">Update</button>
+        </div>
+    </form>
+{% endblock %}
