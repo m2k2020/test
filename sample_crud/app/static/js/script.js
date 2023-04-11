@@ -2,6 +2,20 @@ $(document).ready(function(){
     if($('#result') != null){
         Read();
     }
+
+    $.getJSON("fetch_data/",function(data){
+        $('#myDropdown').append("<option >Select</option>");
+        $.each(data,function(key,value){
+            $('#myDropdown').append("<option value='" + value.id + "'>" + value.name + "</option>");
+
+        })
+    })
+
+
+
+
+
+
     $('#create').on('click', function(){
         $name = $('#name').val();
   
