@@ -8,5 +8,5 @@ class Class(models.Model):
 class Student(models.Model):
     name = models.CharField(max_length=100)
     age = models.IntegerField()
-    class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
+    grade = models.ForeignKey(Class, on_delete=models.CASCADE)
     
