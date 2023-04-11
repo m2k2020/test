@@ -2,25 +2,25 @@
 {% block body %}
 
 <h1>Student Regiteration</h1>
-<form class="form-inline" id="myForm">
+<form class="form-inline" id="myForm" method="POST">
     {% csrf_token %}
     <div class="mb-3">
         
         <label>Name</label> <br>
         <span id="nameError" style="color: red;"></span>
-        <input type="text" id="stname" class="form-control" style="width:30%;" required="required"/>
+        <input type="text" id="stname" class="form-control" style="width:30%;" required/>
         
         <label>Age</label><br>
         <span id="ageError" style="color: red;"></span>
-        <input type="text" id="stage" class="form-control" style="width:30%;" required="required"/>
+        <input type="text" id="stage" class="form-control" style="width:30%;" required/>
         
         <label>List Of Class </label> <br>
         <span id="gradeError" style="color: red;"></span>
-        <select id="myDropdown" class="form-control" style="width:30%;"></select>
+        <select id="myDropdown" class="form-control" style="width:30%;" required></select>
 
     </div>    
     <div class="mb-3">    
-        <button type="button" id="createStudent" class="btn btn-primary">Create</button>
+        <button type="submit" id="createStudent" class="btn btn-primary">Create</button>
     </div>
 </form>
 <br />
