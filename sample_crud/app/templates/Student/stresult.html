@@ -15,9 +15,9 @@
             <td>{{ student.name }}</td>
             <td>{{ student.age }}</td>
             <td>{{ student.grade.name }}</td>
-            <td><center>
+            <td>
                 <a class="btn btn-warning studentedit" name="{{ student.id }}">Edit</a> 
-                <a class="btn btn-danger studentdelete" name="{{ student.id }}">Delete</a></center>
+                <a class="btn btn-danger studentdelete" name="{{ student.id }}">Delete</a>
             </td>
         </tr>
         {% endfor %}
