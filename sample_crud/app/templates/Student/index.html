@@ -2,18 +2,20 @@
 {% block body %}
 
 <h1>Student Regiteration</h1>
-<form class="form-inline">
+<form class="form-inline" id="myForm">
     {% csrf_token %}
     <div class="mb-3">
         
         <label>Name</label> <br>
-        <span id="nameError" font-color="red"></span>
+        <span id="nameError" style="color: red;"></span>
         <input type="text" id="stname" class="form-control" style="width:30%;" required="required"/>
-
-        <label>Age</label>
+        
+        <label>Age</label><br>
+        <span id="ageError" style="color: red;"></span>
         <input type="text" id="stage" class="form-control" style="width:30%;" required="required"/>
-
-        <label>List Of Class </label>
+        
+        <label>List Of Class </label> <br>
+        <span id="gradeError" style="color: red;"></span>
         <select id="myDropdown" class="form-control" style="width:30%;"></select>
 
     </div>    
