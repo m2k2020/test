@@ -82,6 +82,17 @@ def readStudent(request):
     return render(request, 'Student/stresult.html', context)
 
 
+def editStudent(request,id):
+    student = Student.objects.get(id=id)
+    
+    c=  Class.objects.all().exclude(id=student.grade.id)
+    context = {'data': student, 'c': c}
+    return render(request, 'Student/editStudent.html', context)
+
+    
+
+
+
 
 
 
