@@ -1,4 +1,8 @@
 $(document).ready(function(){
+
+    if($('#stresult') != null){
+        readStudent();
+    }
     
     $.getJSON('fetch_data/',function(data){
         $('#myDropdown').append("<option value=''>Select</option>");
@@ -32,31 +36,48 @@ $(document).ready(function(){
                 console.log(data)
 
                 document.getElementById("myForm").reset()
+                readStudent()
             },
             error: function(data){
                 console.log('Error is Occured' + data);
             }
         })
-
-        // alert("Name is " + $name + " and age is " + $age+ " and grade_id is " + $grade_id);
-       
-
-        // if ($name !== '' && $age !== '' && $grade_id !== ''){
-        // //    $('#nameError').text("Please select a name for this student");
-        //     alert("Success!");
-        //     document.getElementById("myForm").reset();
-        //     $('#nameError').text("");
-        //     $('#ageError').text("");
-        //     $('#gradeError').text("")
-        // }
-        // else{
-        //     $('#nameError').text("Please select a name for this student");
-        //     $('#ageError').text("Please select a age for this student");
-        //     $('#gradeError').text("Please select a grade for this student");
-        // }
    }) 
+
+
+   $(document).on('click', '.studentedit', function(){
+    $id = $(this).attr('name');
+    window.location = "editStudent/" + $id;
+
+});
+
+$('#updateForm').submit(function(e){
+    e.preventDefault();
+    $id = $('#id').val();
+    $name = $("#name").val();
+    $age = $("#age").val();
+    $grade_id = $("#umyDropdown").val();
+
+    console.log('id = '+$id + 'name = '+$name+'class id ='+$grade_id)
+})
 
 
 })
 
+
+function readStudent(){
+    $.ajax({
+        url: "readStudent/",
+        type: "POST",
+        async: false,
+        data:{
+            res : 1,
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+        },
+        success: function(response){
+            $('#stresult').html(response)
+        }
+    })
+
+}
 
