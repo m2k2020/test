@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse, HttpResponseRedirect,JsonResponse
 from django.urls import reverse
-from app.models import Class
+from app.models import Class,Student
 from .functions import classes
 
 
@@ -53,6 +53,26 @@ def fetch_data(request):
 
 def student(request):
     return render(request, 'Student/index.html')
+
+
+def createStudent(request):
+    new_name = request.POST['name']
+    new_age = request.POST['age']
+    new_gradeid = request.POST['grade_id']
+    print(new_name + " " + new_age + " " + new_gradeid)
+
+    if new_name is None:
+        print("Please enter Name: ")
+    if new_age is None:
+        print("Please enter Age: ")
+    if new_gradeid is None:
+        print("Please enter Grade ID: ")
+
+    else:
+        id_class = Class.objects.get(id=new_gradeid)
+        add_Student = Student(name=new_name, age=new_age, class_id=id_class)
+        add_Student.save()
+        return redirect('/')
 
 
 
