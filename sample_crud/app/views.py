@@ -7,7 +7,7 @@ from .functions import classes
 
 # Create your views here.
 
-
+#region Class
 def index(request):
     return render(request, 'Classes/index.html')
   
@@ -48,7 +48,7 @@ def fetch_data(request):
     return JsonResponse(result, safe=False)
 
 
-
+#endregion
 
 
 def student(request):
@@ -70,9 +70,16 @@ def createStudent(request):
 
     else:
         id_class = Class.objects.get(id=new_gradeid)
-        add_Student = Student(name=new_name, age=new_age, class_id=id_class)
+        id=id_class.id
+        add_Student = Student(name=new_name, age=new_age, grade_id=id)
         add_Student.save()
         return redirect('/')
+    
+
+def readStudent(request):
+    students = Student.objects.all()
+    context = {'data': students}
+    return render(request, 'Student/stresult.html', context)
 
 
 
