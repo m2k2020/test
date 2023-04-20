@@ -13,9 +13,9 @@ urlpatterns = [
 
     #region Environment
 
-    path('house/', views.house, name='house'), 
-    path('Renter/', views.renter, name='Renter'),
-    path('Enviroment/', views.enviroment, name='Enviroment'),
+    path('company/', views.company, name='company'), 
+    path('network/', views.network, name='network'),
+    path('host/', views.host, name='host'),
 
     #endregion
 
@@ -23,10 +23,9 @@ urlpatterns = [
 
 
 
-    path('cleaning/', views.cleaning, name='cleaning'),
+    path('ports/', views.ports, name='ports'),
     
-    path('reports/', views.reports, name='reports'),
-    path('Payment_Method/', views.Payment_Method, name='Payment_Method'),
-    path('Transaction/', views.Transaction, name='Transaction'),
+    path('scan_case/', views.scan_case, name='scan_case'),
+    path('compare/', views.compare, name='compare'),
     path('Reports2/', views.Reports2, name='Reports2'),
 ]
