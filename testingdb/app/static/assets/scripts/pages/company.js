@@ -1,35 +1,37 @@
 $(document).ready(function() {
-    readHouse();
-    createHouse();
+    readCompany();
+    creatCompany();
     // EditHouse();
 })
 
-function createHouse(){
+function creatCompany(){
     $('#registerForm').submit(function (e){
         e.preventDefault();
 
-        $District = $("#district").val();
-        $DistrictApr = $("#district option:selected").data("foo");
-        $Type = $('#type').val();
-        $HouseNo = $('#houseno').val();
-        $HouseNumber = $DistrictApr + "" + $HouseNo
-        $status = 0
+        $case = $('#case').val();
+        $owner = $('#owner').val();
+        $asn = $('#asn').val();
+        var currentTime = new Date();
+        var formattedTime = currentTime.toLocaleTimeString();
+        // alert(`The current time is ${formattedTime}`);
+        // $timing = formattedTime
+
 
         
-        if($District != null && $DistrictApr != null && $Type != null && $HouseNo != null && $HouseNumber != null && $status == 0) {
+        if($case != null && $owner != null && $asn != null && formattedTime != null ) {
             
             // alert(`Option Value: ${$District}\ndata-foo: ${$DistrictApr}\nHouseNumer: ${$HouseNumber}`);
        
      
-            // console.log($District + " " + $Type + " " + $HouseNo+ " " + $status)
+            console.log($case + " " + $owner + " " + $asn+ " " + formattedTime)
             $.ajax({
                 url: '',
                 type: "POST",
                 data: {
-                    'district': $District,
-                    'type': $Type,
-                    'houseno': $HouseNumber,
-                    'status': $status,
+                    'case': $case,
+                    'owner': $owner,
+                    'asn': $asn,
+                    'formattedTime': formattedTime,
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()                    
                 },
                 success: function(data) {
@@ -44,7 +46,7 @@ function createHouse(){
                     .then(function(){
 
                         $('#newUser').hide();
-                        readHouse()
+                        readCompany()
                         location.reload();
                     })
 
@@ -80,7 +82,7 @@ function createHouse(){
     })
 }
 
-function readHouse(){
+function readCompany(){
 
     $.ajax({
         url: "house/",
