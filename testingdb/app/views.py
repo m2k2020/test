@@ -19,37 +19,35 @@ def staffs(request):
     return render(request,'accounts/staffs.html')
 
 
-def house(request):     
-    return render(request,'Enviroment/house.html')
+def company(request):     
+    return render(request,'pages/company.html')
 
 
-def renter(request):
+def network(request):
 
-    return render(request,'Enviroment/renter.html')
+    return render(request,'pages/network.html')
 
-def enviroment(request):
+def host(request):
 
-    return render(request,'Enviroment/enviroment.html')
-
-
+    return render(request,'pages/host.html')
 
 
-def cleaning(request):
-    return render(request,'Enviroment/cleaning.html')
-
-def reports(request):
-    return render(request,'Enviroment/reports.html')
-
-def Payment_Method(request):
-    return render(request,'Enviroment/Payment_Method.html')
 
 
-def Transaction(request):
-    return render(request,'Enviroment/Transaction.html')
+def ports(request):
+    return render(request,'pages/port.html')
+
+def compare(request):
+    return render(request,'pages/compare.html')
+
+
+
+def scan_case(request):
+    return render(request,'pages/scan_case.html')
 
 
 def Reports2(request):
-    return render(request,'Enviroment/Reports2.html')
+    return render(request,'pages/Reports2.html')
 
 
 
