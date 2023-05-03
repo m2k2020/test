@@ -37,14 +37,17 @@ def author(request):
 
         if data:
             for item in data:
-                name = item['name']
-                age = item['age']
-                adding = Author(name=name,age=age)
-                adding.save()
-                # print(name,age)
+                # id = item['id']
+                # name = item['name']
+                # age = item['age']
+                # adding = Author(name=name,age=age)
+                # adding.save()
+                print(item['ip'])
             # Access the keys and values of each dictionary
-                # for key, val in item.items():
-                #     print(key ,val,"\n")
+                # for k,v in item.items():
+                #     print(k,v,"\n")
+
+                    
 
         else:
             print("No Captured data")
