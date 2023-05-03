@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Files</h1>
+
+    <h2>Register Files</h2>
+    <form method="POST" action="{% url 'files' %}"enctype="multipart/form-data" >
+        {% csrf_token %}
+        <select name="cases" id="cases" required>
+            <option value="">Select Onne Cases</option>
+            {% for cases in casadata %}
+            <option value="{{cases.id}}">{{cases.crimename}}-({{cases.casetype}})</option>
+            {% endfor %}
+        </select>
+        <input type="file" name="file" id="file" multiple required>
+
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
