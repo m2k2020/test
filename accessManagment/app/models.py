@@ -9,3 +9,7 @@ class Files(models.Model):
     file = models.FileField(upload_to='files/')
     date = models.DateField(auto_now_add=True)
     cases = models.ForeignKey(Cases, on_delete=models.CASCADE)
+
+class ZipFile(models.Model):
+    name = models.CharField(max_length=255)
+    file = models.BinaryField()
