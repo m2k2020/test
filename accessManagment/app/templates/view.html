@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th >S/N</th>
+                        <th >Name</th>
+                        <th >Action</th>
+                        <th ></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% csrf_token %}
+                      {% for d in zipdata %}
+                      <tr>
+                        <th>{{forloop.counter}}</th>
+                        <th>{{d.name}}</th>
+                        <th>
+                            <a href="{% url 'downloadFile' zip_file_id=d.id %}" class="btn btn-primary">
+                                Download
+                            </a>
+                        </th>
+                        <!-- <th>{{d.file}}</th> -->
+                        <!-- <th>
+                            <button 
+                            class="btn btn-success btn-sm btnDownload"
+                            data-id="{{d.id}}">
+                                Download
+                            </button>
+                        </th> -->
+
+                        
+                       
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+   
+   
+   </script>
+
+</body>
+
+
+</html>
